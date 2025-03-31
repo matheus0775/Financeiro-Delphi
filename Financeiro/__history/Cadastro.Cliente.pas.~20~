@@ -1,0 +1,93 @@
+unit Cadastro.Cliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Buttons, Vcl.Mask,
+  Vcl.ExtCtrls, Vcl.DBCtrls, uConexao;
+
+type
+  TfrmCadastroCliente = class(TForm)
+    Label1: TLabel;
+    edtNome: TDBEdit;
+    btnSalvar: TBitBtn;
+    btnCancelar: TBitBtn;
+    sqlPadrao: TFDQuery;
+    dsPadrao: TDataSource;
+    sqlPadraoCODIGO: TIntegerField;
+    sqlPadraoNOME: TWideStringField;
+    edtCodigo: TDBEdit;
+    Label2: TLabel;
+    btnNovo: TBitBtn;
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroCliente: TfrmCadastroCliente;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroCliente.btnCancelarClick(Sender: TObject);
+begin
+  sqlPadrao.Cancel; // Cancela a edição e descarta alterações
+  btnNovo.Enabled := True;
+  btnSalvar.Enabled := False;
+  btnCancelar.Enabled := False;
+  edtNome.Enabled := False;
+end;
+
+procedure TfrmCadastroCliente.btnNovoClick(Sender: TObject);
+var
+  NovoCodigo: Integer;
+  QueryTemp: TFDQuery;
+begin
+  if not sqlPadrao.Active then
+    sqlPadrao.Open;
+
+  // Criar um TFDQuery temporário para buscar o próximo código
+  QueryTemp := TFDQuery.Create(nil);
+  try
+    QueryTemp.Connection := sqlPadrao.Connection; // Usa a mesma conexão do sqlPadrao
+    QueryTemp.SQL.Text := 'SELECT GEN_ID(GEN_CLIENTE, 1) FROM RDB$DATABASE';
+    QueryTemp.Open;
+    NovoCodigo := QueryTemp.Fields[0].AsInteger;
+    QueryTemp.Close;
+  finally
+    QueryTemp.Free;
+  end;
+
+  // Inicia a inserção e define o novo código gerado
+  sqlPadrao.Append;
+  sqlPadrao.FieldByName('CODIGO').AsInteger := NovoCodigo;
+
+  btnNovo.Enabled := False;
+  btnSalvar.Enabled := True;
+  btnCancelar.Enabled := True;
+  edtNome.Enabled := True;
+end;
+
+procedure TfrmCadastroCliente.btnSalvarClick(Sender: TObject);
+begin
+  sqlPadrao.Open();
+  sqlPadrao.Post();
+  sqlPadrao.Close();
+
+  btnNovo.Enabled := True;
+  btnSalvar.Enabled := False;
+  btnCancelar.Enabled := False;
+end;
+
+
+end.
