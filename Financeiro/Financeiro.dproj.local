@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2025/03/30 19:25:57.045,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 19:26:28.119,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/03/30 19:31:54.673,C:\Projeto\Financeiro\uConexao.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2025/03/30 19:31:54.673,C:\Projeto\Financeiro\uConexao.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2025/03/30 19:32:30.826,C:\Projeto\Financeiro\Financeiro.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 19:32:30.826,C:\Projeto\Financeiro\Financeiro.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 19:33:08.297,C:\Projeto\Financeiro\Financeiro.pas=</Transaction>
+    <Transaction>2025/03/30 19:33:33.822,C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Projeto.dproj=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2025/03/30 19:33:43.651,C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Financeiro..dproj=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Projeto.dproj</Transaction>
+    <Transaction>2025/03/30 19:33:47.839,C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Financeiro.dproj=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Financeiro..dproj</Transaction>
+    <Transaction>2025/03/30 19:33:57.806,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 19:34:19.789,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 19:38:15.632,C:\Projeto\Financeiro\Cadastro.Cliente.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 19:38:15.632,C:\Projeto\Financeiro\Cadastro.Cliente.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:08:32.167,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:11:43.963,C:\Projeto\Financeiro\Cadastro.Fornecedor.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:11:43.963,C:\Projeto\Financeiro\Cadastro.Fornecedor.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 20:20:12.245,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:20:29.171,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:21:48.018,C:\Projeto\Financeiro\Cadastro.Funcionario.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:21:48.018,C:\Projeto\Financeiro\Cadastro.Funcionario.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 20:31:13.110,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:42:30.400,C:\Projeto\Financeiro\Cadastro.Produto.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 20:42:30.400,C:\Projeto\Financeiro\Cadastro.Produto.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 21:24:45.262,=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 21:30:23.250,C:\Projeto\Financeiro\Venda.pas=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/03/30 21:30:23.250,C:\Projeto\Financeiro\Venda.dfm=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/03/30 22:27:45.480,C:\Projeto\Financeiro\Financeiro.dproj=C:\Users\mathe\Documents\Embarcadero\Studio\Projects\Financeiro.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
