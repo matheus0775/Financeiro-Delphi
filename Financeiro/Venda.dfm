@@ -10,6 +10,7 @@ object frmVenda: TfrmVenda
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
@@ -36,7 +37,7 @@ object frmVenda: TfrmVenda
   object Label6: TLabel
     Left = 441
     Top = 251
-    Width = 64
+    Width = 63
     Height = 15
     Caption = 'Total Venda:'
   end
@@ -90,18 +91,57 @@ object frmVenda: TfrmVenda
     Top = 66
     Width = 624
     Height = 175
+    DataSource = dsItensVenda
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'PRO_CODIGO'
+        Title.Alignment = taRightJustify
+        Title.Caption = 'C'#243'digo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRICAO'
+        Title.Caption = 'Descri'#231#227'o'
+        Width = 264
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'QUANTIDADE'
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Qtde.'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR_CUSTO'
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Unit'#225'rio'
+        Width = 85
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR_VENDA'
+        Title.Alignment = taCenter
+        Title.Caption = 'TOTAL'
+        Width = 85
+        Visible = True
+      end>
   end
   object edtTotalVenda: TEdit
     Left = 511
     Top = 248
     Width = 121
-    Height = 26
+    Height = 23
     TabOrder = 6
   end
   object BitBtn1: TBitBtn
@@ -323,37 +363,83 @@ object frmVenda: TfrmVenda
   object sqlItensVenda: TFDQuery
     Connection = MinhaConexao.Connection
     SQL.Strings = (
-      'SELECT LANCTO, '
-      '       CLI_CODIGO, '
-      '       VENDEDOR_CODIGO, '
-      '       TOTAL_VENDA, '
-      '       STATUS'
-      'FROM VENDA')
+      'select V.LANCTO,'
+      '       V.LANCTO_ORIGEM,'
+      '       V.PRO_CODIGO,'
+      '       V.VALOR_VENDA,'
+      '       V.VALOR_CUSTO,'
+      '       V.QUANTIDADE,'
+      '       V.ITENS,'
+      '       P.DESCRICAO,'
+      '       P.DESCRICAO_RESUMIDA,'
+      '       P.UNIDADE'
+      '  from VENDA_ITENS V'
+      '  join PRODUTO P'
+      '    on P.CODIGO = V.PRO_CODIGO')
     Left = 464
     Top = 104
-    object IntegerField1: TIntegerField
+    object sqlItensVendaLANCTO: TIntegerField
       FieldName = 'LANCTO'
       Origin = 'LANCTO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object IntegerField2: TIntegerField
-      FieldName = 'CLI_CODIGO'
-      Origin = 'CLI_CODIGO'
+    object sqlItensVendaLANCTO_ORIGEM: TIntegerField
+      FieldName = 'LANCTO_ORIGEM'
+      Origin = 'LANCTO_ORIGEM'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object IntegerField3: TIntegerField
-      FieldName = 'VENDEDOR_CODIGO'
-      Origin = 'VENDEDOR_CODIGO'
+    object sqlItensVendaPRO_CODIGO: TIntegerField
+      FieldName = 'PRO_CODIGO'
+      Origin = 'PRO_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
-    object FMTBCDField1: TFMTBCDField
-      FieldName = 'TOTAL_VENDA'
-      Origin = 'TOTAL_VENDA'
+    object sqlItensVendaVALOR_VENDA: TFMTBCDField
+      FieldName = 'VALOR_VENDA'
+      Origin = 'VALOR_VENDA'
       Precision = 18
       Size = 2
     end
-    object IntegerField4: TIntegerField
-      FieldName = 'STATUS'
-      Origin = 'STATUS'
+    object sqlItensVendaVALOR_CUSTO: TFMTBCDField
+      FieldName = 'VALOR_CUSTO'
+      Origin = 'VALOR_CUSTO'
+      Precision = 18
+      Size = 2
+    end
+    object sqlItensVendaQUANTIDADE: TIntegerField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+    end
+    object sqlItensVendaITENS: TIntegerField
+      FieldName = 'ITENS'
+      Origin = 'ITENS'
+    end
+    object sqlItensVendaDESCRICAO: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 264
+    end
+    object sqlItensVendaDESCRICAO_RESUMIDA: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'DESCRICAO_RESUMIDA'
+      Origin = 'DESCRICAO_RESUMIDA'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 264
+    end
+    object sqlItensVendaUNIDADE: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 2
     end
   end
   object dsItensVenda: TDataSource

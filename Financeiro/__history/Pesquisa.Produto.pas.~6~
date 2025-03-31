@@ -1,0 +1,84 @@
+unit Pesquisa.Produto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Vcl.StdCtrls, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids,
+  Vcl.DBGrids, uConexao, Model.Produto;
+
+type
+  TfrmPesquisaProduto = class(TForm)
+    edtCodigo: TEdit;
+    edtDescricao: TEdit;
+    lblProduto: TLabel;
+    dbgProdutos: TDBGrid;
+    dsPadrao: TDataSource;
+    sqlPadrao: TFDQuery;
+    btnPesquisar: TButton;
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure dbgProdutosDblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    ProdutoSelecionado: TProduto;
+  end;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPesquisaProduto.btnPesquisarClick(Sender: TObject);
+var
+  vSQL: string;
+begin
+  // Monta a query de pesquisa
+  vSQL := ' select CODIGO,'+
+         '        DESCRICAO,'+
+         '        DESCRICAO_RESUMIDA,'+
+         '        PRECO_CUSTO,'+
+         '        PRECO_VENDA,'+
+         '        UNIDADE'+
+         '  from PRODUTO';
+  if Trim(edtCodigo.Text) <> '' then
+    vSQL := vSQL + ' where Codigo LIKE :Codigo';
+  if Trim(edtDescricao.Text) <> '' then
+    vSQL := vSQL + ' where Descricao LIKE :Descricao';
+
+  // Configura os parâmetros e executa a query
+  sqlPadrao.Close;
+  sqlPadrao.SQL.Text := vSQL;
+
+  if Trim(edtCodigo.Text) <> '' then
+    sqlPadrao.ParamByName('CODIGO').AsString := '%' + edtCodigo.Text + '%';
+  if Trim(edtDescricao.Text) <> '' then
+    sqlPadrao.ParamByName('DESCRICAO').AsString := '%' + edtDescricao.Text + '%';
+
+  sqlPadrao.Open;
+end;
+
+procedure TfrmPesquisaProduto.dbgProdutosDblClick(Sender: TObject);
+begin
+  // Captura o código do produto selecionado ao dar duplo clique
+  if not sqlPadrao.IsEmpty then
+  begin
+    ProdutoSelecionado.Codigo := sqlPadrao.FieldByName('CODIGO').AsInteger;
+    ProdutoSelecionado.Descricao := sqlPadrao.FieldByName('DESCRICAO').AsString;
+    ProdutoSelecionado.DescricaoResumida := sqlPadrao.FieldByName('DESCRICAO_RESUMIDA').AsString;
+    ProdutoSelecionado.PrecoCusto := sqlPadrao.FieldByName('PRECO_CUSTO').AsCurrency;
+    ProdutoSelecionado.PrecoVenda := sqlPadrao.FieldByName('PRECO_VENDA').AsCurrency;
+    ProdutoSelecionado.Unidade := sqlPadrao.FieldByName('UNIDADE').AsString;
+    ModalResult := mrOk; // Fecha o formulário e retorna "OK"
+  end;
+end;
+
+procedure TfrmPesquisaProduto.FormCreate(Sender: TObject);
+begin
+  ProdutoSelecionado := TProduto.Create();
+end;
+
+end.

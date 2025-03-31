@@ -45,9 +45,6 @@ type
     sqlItensVendaVALOR_CUSTO: TFMTBCDField;
     sqlItensVendaQUANTIDADE: TIntegerField;
     sqlItensVendaITENS: TIntegerField;
-    sqlItensVendaDESCRICAO: TWideStringField;
-    sqlItensVendaDESCRICAO_RESUMIDA: TWideStringField;
-    sqlItensVendaUNIDADE: TWideStringField;
   private
     { Private declarations }
   public

@@ -37,17 +37,12 @@ type
     sqlPadraoTOTAL_VENDA: TFMTBCDField;
     sqlPadraoSTATUS: TIntegerField;
     sqlItensVenda: TFDQuery;
+    IntegerField1: TIntegerField;
+    IntegerField2: TIntegerField;
+    IntegerField3: TIntegerField;
+    FMTBCDField1: TFMTBCDField;
+    IntegerField4: TIntegerField;
     dsItensVenda: TDataSource;
-    sqlItensVendaLANCTO: TIntegerField;
-    sqlItensVendaLANCTO_ORIGEM: TIntegerField;
-    sqlItensVendaPRO_CODIGO: TIntegerField;
-    sqlItensVendaVALOR_VENDA: TFMTBCDField;
-    sqlItensVendaVALOR_CUSTO: TFMTBCDField;
-    sqlItensVendaQUANTIDADE: TIntegerField;
-    sqlItensVendaITENS: TIntegerField;
-    sqlItensVendaDESCRICAO: TWideStringField;
-    sqlItensVendaDESCRICAO_RESUMIDA: TWideStringField;
-    sqlItensVendaUNIDADE: TWideStringField;
   private
     { Private declarations }
   public

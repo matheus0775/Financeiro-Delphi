@@ -1,7 +1,7 @@
 object MinhaConexao: TMinhaConexao
-  OldCreateOrder = True
   Height = 117
   Width = 171
+  PixelsPerInch = 96
   object Connection: TFDConnection
     Params.Strings = (
       'Database=C:\GIELOW.FDB'
@@ -9,7 +9,6 @@ object MinhaConexao: TMinhaConexao
       'Password=masterkey'
       'Port=3050'
       'DriverID=FB')
-    Connected = True
     Left = 32
     Top = 32
   end
