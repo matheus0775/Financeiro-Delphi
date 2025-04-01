@@ -10,6 +10,7 @@ object MinhaConexao: TMinhaConexao
       'Port=3050'
       'DriverID=FB')
     Connected = True
+    LoginPrompt = False
     Left = 32
     Top = 32
   end

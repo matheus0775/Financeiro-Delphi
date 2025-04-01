@@ -41,7 +41,7 @@ implementation
 
 procedure TfrmPesquisaProduto.btnPesquisarClick(Sender: TObject);
 begin
-  sqlPadrao.Close;
+  sqlPadrao.Close();
   if (Trim(edtCodigo.Text) <> '') or (Trim(edtDescricao.Text) <> '') then
   begin
     sqlPadrao.SQL.Text := sqlPadrao.SQL.Text + ' WHERE 1=1'; // Base para facilitar a concatenação com AND
@@ -57,7 +57,7 @@ begin
   if Trim(edtDescricao.Text) <> '' then
     sqlPadrao.ParamByName('DESCRICAO').AsString := '%' + Trim(edtDescricao.Text) + '%';
 
-  sqlPadrao.Open;
+  sqlPadrao.Open();
 end;
 
 procedure TfrmPesquisaProduto.dbgProdutosDblClick(Sender: TObject);
