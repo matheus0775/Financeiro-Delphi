@@ -130,6 +130,16 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Model.Produto.pas"/>
+        <DCCReference Include="Pesquisa.Cliente.pas">
+            <Form>frmPesquisaCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Model.Cliente.pas"/>
+        <DCCReference Include="Model.Funcionario.pas"/>
+        <DCCReference Include="Pesquisa.Funcionario.pas">
+            <Form>frmPesquisaFuncionario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
