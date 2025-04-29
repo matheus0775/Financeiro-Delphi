@@ -13,7 +13,8 @@ uses
   Pesquisa.Cliente in 'Pesquisa.Cliente.pas' {frmPesquisaCliente},
   Model.Cliente in 'Model.Cliente.pas',
   Model.Funcionario in 'Model.Funcionario.pas',
-  Pesquisa.Funcionario in 'Pesquisa.Funcionario.pas' {frmPesquisaFuncionario};
+  Pesquisa.Funcionario in 'Pesquisa.Funcionario.pas' {frmPesquisaFuncionario},
+  LancamentoProduto in 'LancamentoProduto.pas' {frmLancamentoProduto};
 
 {$R *.res}
 
@@ -21,9 +22,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TMinhaConexao, MinhaConexao);
-  Application.CreateForm(TfrmVenda, frmVenda);
-  Application.CreateForm(TfrmPesquisaProduto, frmPesquisaProduto);
-  Application.CreateForm(TfrmPesquisaCliente, frmPesquisaCliente);
-  Application.CreateForm(TfrmPesquisaFuncionario, frmPesquisaFuncionario);
   Application.Run;
 end.

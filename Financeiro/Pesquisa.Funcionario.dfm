@@ -13,6 +13,8 @@ object frmPesquisaFuncionario: TfrmPesquisaFuncionario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object lblProduto: TLabel
@@ -41,6 +43,7 @@ object frmPesquisaFuncionario: TfrmPesquisaFuncionario
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = dbgProdutosDblClick
     Columns = <
       item
         Expanded = False
@@ -71,6 +74,7 @@ object frmPesquisaFuncionario: TfrmPesquisaFuncionario
     Height = 57
     Caption = 'Pesquisar'
     TabOrder = 3
+    OnClick = btnPesquisarClick
   end
   object dsPadrao: TDataSource
     DataSet = sqlPadrao

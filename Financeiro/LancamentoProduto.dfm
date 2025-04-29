@@ -1,142 +1,110 @@
-object frmVenda: TfrmVenda
+object frmLancamentoProduto: TfrmLancamentoProduto
   Left = 0
   Top = 0
-  Caption = 'Venda'
-  ClientHeight = 331
-  ClientWidth = 635
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Lancamento produto'
+  ClientHeight = 124
+  ClientWidth = 413
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
-  Font.Name = 'Segoe UI'
+  Font.Height = -11
+  Font.Name = 'Tahoma'
   Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
   PixelsPerInch = 96
-  TextHeight = 15
+  TextHeight = 13
+  object lblProduto: TLabel
+    Left = 16
+    Top = 12
+    Width = 42
+    Height = 13
+    Caption = 'Produto:'
+  end
+  object lblQuantidade: TLabel
+    Left = 16
+    Top = 51
+    Width = 60
+    Height = 13
+    Caption = 'Quantidade:'
+  end
   object Label1: TLabel
-    Left = 8
-    Top = 11
-    Width = 43
-    Height = 15
-    Caption = 'Cliente: '
+    Left = 151
+    Top = 51
+    Width = 41
+    Height = 13
+    Caption = 'Unitario:'
   end
   object Label2: TLabel
-    Left = 8
-    Top = 40
-    Width = 53
-    Height = 15
-    Caption = 'Vendedor:'
+    Left = 286
+    Top = 51
+    Width = 36
+    Height = 13
+    Caption = 'TOTAL:'
   end
-  object Label3: TLabel
-    Left = 476
+  object edtPesquisaProduto: TEdit
+    Left = 134
     Top = 11
-    Width = 39
-    Height = 15
-    Caption = 'Lancto:'
-  end
-  object Label6: TLabel
-    Left = 441
-    Top = 251
-    Width = 64
-    Height = 15
-    Caption = 'Total Venda:'
-  end
-  object btnCliente: TButtonedEdit
-    Left = 62
-    Top = 8
-    Width = 59
-    Height = 23
-    Images = ImageList1
-    RightButton.ImageIndex = 0
-    RightButton.Visible = True
+    Width = 273
+    Height = 21
     TabOrder = 0
-    Text = 'btnCliente'
   end
-  object btnVendedor: TButtonedEdit
-    Left = 62
-    Top = 37
-    Width = 59
-    Height = 23
-    Images = ImageList1
-    RightButton.ImageIndex = 0
-    RightButton.Visible = True
+  object edtQuantidade: TEdit
+    Left = 82
+    Top = 48
+    Width = 58
+    Height = 21
     TabOrder = 1
-    Text = 'ButtonedEdit1'
+    OnExit = edtQuantidadeExit
   end
-  object edtCliente: TDBEdit
-    Left = 143
-    Top = 8
-    Width = 306
-    Height = 23
+  object edtPrecoVenda: TEdit
+    Left = 198
+    Top = 48
+    Width = 74
+    Height = 21
     TabOrder = 2
-  end
-  object edtVendedor: TDBEdit
-    Left = 143
-    Top = 37
-    Width = 306
-    Height = 23
-    TabOrder = 3
-  end
-  object edtLancto: TDBEdit
-    Left = 521
-    Top = 8
-    Width = 111
-    Height = 23
-    TabOrder = 4
-  end
-  object DBGrid1: TDBGrid
-    Left = 8
-    Top = 66
-    Width = 624
-    Height = 175
-    TabOrder = 5
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -12
-    TitleFont.Name = 'Segoe UI'
-    TitleFont.Style = []
+    OnExit = edtQuantidadeExit
   end
   object edtTotalVenda: TEdit
-    Left = 511
-    Top = 248
-    Width = 121
-    Height = 26
-    TabOrder = 6
+    Left = 333
+    Top = 48
+    Width = 74
+    Height = 21
+    TabOrder = 3
   end
-  object BitBtn1: TBitBtn
-    Left = 8
-    Top = 247
+  object btnConfirmar: TButton
+    Left = 252
+    Top = 75
     Width = 75
-    Height = 25
-    Caption = 'Adicionar'
-    TabOrder = 7
+    Height = 38
+    Caption = 'Confirmar'
+    TabOrder = 4
+    OnClick = btnConfirmarClick
   end
-  object BitBtn2: TBitBtn
-    Left = 89
-    Top = 247
+  object btnCancelar: TButton
+    Left = 333
+    Top = 75
     Width = 75
-    Height = 25
-    Caption = 'Remover'
-    TabOrder = 8
-  end
-  object BitBtn3: TBitBtn
-    Left = 557
-    Top = 280
-    Width = 75
-    Height = 42
-    Caption = 'Salvar'
-    TabOrder = 9
-  end
-  object BitBtn4: TBitBtn
-    Left = 473
-    Top = 280
-    Width = 75
-    Height = 42
+    Height = 38
     Caption = 'Cancelar'
-    TabOrder = 10
+    TabOrder = 5
+  end
+  object btnProduto: TButtonedEdit
+    Left = 69
+    Top = 9
+    Width = 59
+    Height = 23
+    Images = ImageList1
+    RightButton.ImageIndex = 0
+    RightButton.Visible = True
+    TabOrder = 6
+    OnChange = btnProdutoChange
   end
   object ImageList1: TImageList
-    Left = 264
-    Top = 112
+    Left = 72
+    Top = 72
     Bitmap = {
       494C010101000800040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -276,20 +244,5 @@ object frmVenda: TfrmVenda
       C7C7000000000000C807000000000000E00F000000000000D01F000000000000
       F4BF000000000000FCFF00000000000000000000000000000000000000000000
       000000000000}
-  end
-  object sqlPadrao: TFDQuery
-    SQL.Strings = (
-      'SELECT LANCTO, '
-      '       CLI_CODIGO, '
-      '       VENDEDOR_CODIGO, '
-      '       TOTAL_VENDA, '
-      '       STATUS'
-      'FROM VENDA')
-    Left = 224
-    Top = 248
-  end
-  object dsPadrao: TDataSource
-    Left = 280
-    Top = 248
   end
 end

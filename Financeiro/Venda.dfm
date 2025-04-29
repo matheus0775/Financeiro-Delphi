@@ -62,6 +62,7 @@ object frmVenda: TfrmVenda
     RightButton.Visible = True
     TabOrder = 1
     Text = 'ButtonedEdit1'
+    OnChange = btnVendedorChange
   end
   object edtCliente: TDBEdit
     Left = 143
@@ -122,7 +123,7 @@ object frmVenda: TfrmVenda
       end
       item
         Expanded = False
-        FieldName = 'VALOR_CUSTO'
+        FieldName = 'VALOR_VENDA'
         Title.Alignment = taRightJustify
         Title.Caption = 'Unit'#225'rio'
         Width = 85
@@ -130,7 +131,7 @@ object frmVenda: TfrmVenda
       end
       item
         Expanded = False
-        FieldName = 'VALOR_VENDA'
+        FieldName = 'VALOR_TOTAL'
         Title.Alignment = taCenter
         Title.Caption = 'TOTAL'
         Width = 85
@@ -144,21 +145,23 @@ object frmVenda: TfrmVenda
     Height = 23
     TabOrder = 6
   end
-  object BitBtn1: TBitBtn
+  object btnAdicionarProduto: TBitBtn
     Left = 8
     Top = 247
     Width = 75
     Height = 25
     Caption = 'Adicionar'
     TabOrder = 7
+    OnClick = btnAdicionarProdutoClick
   end
-  object BitBtn2: TBitBtn
+  object btnRemoverProduto: TBitBtn
     Left = 89
     Top = 247
     Width = 75
     Height = 25
     Caption = 'Remover'
     TabOrder = 8
+    OnClick = btnRemoverProdutoClick
   end
   object BitBtn3: TBitBtn
     Left = 557
@@ -167,6 +170,7 @@ object frmVenda: TfrmVenda
     Height = 42
     Caption = 'Salvar'
     TabOrder = 9
+    OnClick = BitBtn3Click
   end
   object BitBtn4: TBitBtn
     Left = 473
@@ -175,6 +179,7 @@ object frmVenda: TfrmVenda
     Height = 42
     Caption = 'Cancelar'
     TabOrder = 10
+    OnClick = BitBtn4Click
   end
   object ImageList1: TImageList
     Left = 264
@@ -369,10 +374,11 @@ object frmVenda: TfrmVenda
       '       V.VALOR_VENDA,'
       '       V.VALOR_CUSTO,'
       '       V.QUANTIDADE,'
-      '       V.ITENS,'
+      '       V.ITEM,'
       '       P.DESCRICAO,'
       '       P.DESCRICAO_RESUMIDA,'
-      '       P.UNIDADE'
+      '       P.UNIDADE,'
+      '       V.VALOR_TOTAL'
       '  from VENDA_ITENS V'
       '  join PRODUTO P'
       '    on P.CODIGO = V.PRO_CODIGO')
@@ -412,10 +418,6 @@ object frmVenda: TfrmVenda
       FieldName = 'QUANTIDADE'
       Origin = 'QUANTIDADE'
     end
-    object sqlItensVendaITENS: TIntegerField
-      FieldName = 'ITENS'
-      Origin = 'ITENS'
-    end
     object sqlItensVendaDESCRICAO: TWideStringField
       AutoGenerateValue = arDefault
       FieldName = 'DESCRICAO'
@@ -440,6 +442,16 @@ object frmVenda: TfrmVenda
       ReadOnly = True
       FixedChar = True
       Size = 2
+    end
+    object sqlItensVendaVALOR_TOTAL: TFMTBCDField
+      FieldName = 'VALOR_TOTAL'
+      Origin = 'VALOR_TOTAL'
+      Precision = 18
+      Size = 2
+    end
+    object sqlItensVendaITEM: TIntegerField
+      FieldName = 'ITEM'
+      Origin = 'ITEM'
     end
   end
   object dsItensVenda: TDataSource

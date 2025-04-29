@@ -8,8 +8,7 @@ uses
   Vcl.ExtCtrls, Vcl.DBCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Menus, BtnListB,
-  Vcl.ControlList, uConexao;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Menus, uConexao;
 
 type
   TfrmCadastroProduto = class(TForm)
@@ -47,9 +46,6 @@ type
   public
     { Public declarations }
   end;
-
-var
-  frmCadastroProduto: TfrmCadastroProduto;
 
 implementation
 

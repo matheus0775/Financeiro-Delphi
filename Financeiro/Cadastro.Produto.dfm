@@ -12,6 +12,7 @@ object frmCadastroProduto: TfrmCadastroProduto
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poDesktopCenter
   OnCreate = FormCreate
   PixelsPerInch = 96

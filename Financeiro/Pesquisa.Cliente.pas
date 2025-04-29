@@ -29,7 +29,7 @@ type
   private
     { Private declarations }
   public
-    ProdutoSelecionado: TCliente;
+    ClienteSelecionado: TCliente;
   end;
 
 implementation
@@ -60,19 +60,20 @@ procedure TfrmPesquisaCliente.dbgProdutosDblClick(Sender: TObject);
 begin
   if not sqlPadrao.IsEmpty() then
   begin
-    ProdutoSelecionado.Codigo := sqlPadrao.FieldByName('CODIGO').AsInteger;
-    ProdutoSelecionado.Nome := sqlPadrao.FieldByName('NOME').AsString;
+    ClienteSelecionado.Codigo := sqlPadrao.FieldByName('CODIGO').AsInteger;
+    ClienteSelecionado.Nome := sqlPadrao.FieldByName('NOME').AsString;
+    ModalResult := mrOk;
   end;
 end;
 
 procedure TfrmPesquisaCliente.FormCreate(Sender: TObject);
 begin
-  ProdutoSelecionado := TCliente.Create();
+  ClienteSelecionado := TCliente.Create();
 end;
 
 procedure TfrmPesquisaCliente.FormDestroy(Sender: TObject);
 begin
-  FreeAndNil(ProdutoSelecionado);
+  FreeAndNil(ClienteSelecionado);
 end;
 
 end.
